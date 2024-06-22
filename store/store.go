@@ -13,8 +13,8 @@ type Txn = store.Txn
 type Store interface {
 	Get(ctx context.Context, key []byte) ([]byte, error)
 	Put(ctx context.Context, key []byte, value []byte) error
-	Delete(ctx context.Context, key[]byte) error
-	Exists(ctx context.Context, key[]byte) (bool, error)
+	Delete(ctx context.Context, key []byte) error
+	Exists(ctx context.Context, key []byte) (bool, error)
 	Snapshot() (io.ReadWriter, error)
 	Restore(buf io.Reader) error
 

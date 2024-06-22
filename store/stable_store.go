@@ -4,7 +4,7 @@ import hraft "github.com/hashicorp/raft"
 
 var prefixRedisAddr = []byte("___redisAddr")
 
-func GetRdisAddrByNodeID(store hraft.StableStore, lid hraft.ServerID) (string, error) {
+func GetRedisAddrByNodeID(store hraft.StableStore, lid hraft.ServerID) (string, error) {
 	v, err := store.Get(append(prefixRedisAddr, []byte(lid)...))
 	if err != nil {
 		return "", err
@@ -14,5 +14,5 @@ func GetRdisAddrByNodeID(store hraft.StableStore, lid hraft.ServerID) (string, e
 }
 
 func SetRedisAddrByNodeID(store hraft.StableStore, lid hraft.ServerID, addr string) error {
-	return  store.Set(append(prefixRedisAddr, []byte(lid)...), []byte(addr))
+	return store.Set(append(prefixRedisAddr, []byte(lid)...), []byte(addr))
 }
