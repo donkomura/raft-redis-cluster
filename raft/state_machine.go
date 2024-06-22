@@ -53,7 +53,7 @@ func (s *StateMachine) Snapshot() (raft.FSMSnapshot, error) {
 		return nil, err
 	}
 
-	return &KVSnapshot{rc}, rc
+	return &KVSnapshot{rc}, err
 }
 
 // Restore
